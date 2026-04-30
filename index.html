@@ -4,146 +4,402 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Cueva de Miravet — Strategy Brief</title>
-    <!-- Refined Typography for the "Luxury" feel -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
     
+    <!-- Google Fonts for a premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            /* Design System derived from the Brief */
-            --color-text-primary: #1a1a1a;
-            --color-text-secondary: #64748b;
-            --color-border-tertiary: #e2e8f0;
-            --color-background-primary: #ffffff;
-            --color-background-secondary: #f8fafc;
-            --color-accent: #C4622D; /* Terracotta from the brief */
-            --border-radius-lg: 12px;
+            /* Missing variables injected for premium styling */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --color-text-primary: #1F2937;
+            --color-text-secondary: #6B7280;
+            --color-background-primary: #FFFFFF;
+            --color-background-secondary: #F9FAFB;
+            --color-background-page: #F3F4F6;
+            --color-border-tertiary: #E5E7EB;
             --border-radius-md: 8px;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-serif: 'Playfair Display', serif;
+            --border-radius-lg: 12px;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: var(--font-sans); 
-            color: var(--color-text-primary); 
-            background-color: #fcfcf9; /* Subtle off-white */
-            line-height: 1.6;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text-primary);
+            background-color: var(--color-background-page);
+            -webkit-font-smoothing: antialiased;
             padding: 2rem 1rem;
+        }
+
+        .container {
             max-width: 900px;
             margin: 0 auto;
+            background: var(--color-background-primary);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
 
-        .header-area { margin-bottom: 2rem; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 1rem; }
-        .header-area h1 { font-family: var(--font-serif); font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; }
-        .header-area p { color: var(--color-text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        header {
+            margin-bottom: 2rem;
+        }
 
-        .tabs { display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary); margin-bottom: 1.5rem; overflow-x: auto; flex-wrap: nowrap; sticky: top; background: #fcfcf9; z-index: 10; }
-        .tab { padding: 12px 20px; font-size: 14px; cursor: pointer; border: none; background: none; color: var(--color-text-secondary); border-bottom: 2px solid transparent; white-space: nowrap; transition: all .2s; }
-        .tab.on { color: var(--color-accent); border-bottom-color: var(--color-accent); font-weight: 600; }
-        .tab:hover { color: var(--color-accent); }
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: 0.5rem;
+        }
 
-        .panel { display: none; animation: fadeIn 0.3s ease-out; }
-        .panel.on { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .subtitle {
+            font-size: 14px;
+            color: var(--color-text-secondary);
+        }
 
-        .kv { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; gap: 12px; }
-        .kv:last-child { border: none; }
-        .kl { color: var(--color-text-secondary); flex-shrink: 0; min-width: 140px; font-weight: 500; }
-        .kv b { font-weight: 600; color: var(--color-text-primary); }
-
-        .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 18px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-        .card-title { font-size: 11px; font-weight: 600; color: var(--color-accent); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+        .tabs {display:flex;gap:0;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:1.5rem;overflow-x:auto;flex-wrap:nowrap}
+        .tab {padding:9px 16px;font-size:13px;cursor:pointer;border:none;background:none;color:var(--color-text-secondary);border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s}
+        .tab.on {color:var(--color-text-primary);border-bottom-color:var(--color-text-primary);font-weight:500}
+        .tab:hover {color:var(--color-text-primary)}
         
-        .body { font-size: 14px; color: var(--color-text-primary); }
-        .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 20px; margin: 4px 4px 0 0; text-transform: uppercase; }
-        .t-green { background: #EAF3DE; color: #27500A; }
-        .t-amber { background: #FAEEDA; color: #633806; }
-        .t-blue { background: #E6F1FB; color: #0C447C; }
-        .t-red { background: #FCEBEB; color: #791F1F; }
-        .t-teal { background: #E1F5EE; color: #085041; }
-        .t-gray { background: #F1EFE8; color: #444441; }
-
-        .h2 { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; margin-bottom: 1rem; margin-top: 2rem; color: var(--color-text-primary); }
-        .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        @media(max-width:600px){ .cols { grid-template-columns: 1fr; } .kv { flex-direction: column; gap: 2px; } }
-
-        .notice { background: #f0fdf4; border-left: 4px solid #1D9E75; border-radius: 4px; padding: 14px; font-size: 14px; margin-bottom: 1.5rem; color: #166534; }
-        .step { display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start; }
-        .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--color-accent); font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: white; }
+        .panel {display:none}
+        .panel.on {display:block; animation: fadeIn 0.3s ease-in-out;}
         
-        .ia-block { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px; margin-bottom: 10px; border: 1px solid var(--color-border-tertiary); }
-        .ia-title { font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--color-accent); }
-        .ia-list { font-size: 13px; color: var(--color-text-secondary); list-style: none; }
-        .ia-list li { margin-bottom: 6px; position: relative; padding-left: 15px; }
-        .ia-list li::before { content: "→"; position: absolute; left: 0; color: var(--color-accent); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        .page-card { background: white; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px; text-align: center; }
-        .pname { font-weight: 600; font-size: 14px; }
-        .ptag { font-size: 11px; color: var(--color-text-secondary); }
-
-        .divider { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 2rem 0; }
-        .ref-card { background: white; border: 1px solid var(--color-border-tertiary); padding: 12px; border-radius: 8px; margin-bottom: 8px; font-size: 13px; }
-        .ref-label { font-size: 11px; font-weight: 600; color: var(--color-text-secondary); margin-bottom: 8px; text-transform: uppercase; }
+        .kv {display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;gap:12px}
+        .kv:last-child {border:none}
+        .kl {color:var(--color-text-secondary);flex-shrink:0;min-width:140px}
+        .kv b {font-weight:500}
+        
+        .card {background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;margin-bottom:12px; box-shadow: 0 1px 3px rgba(0,0,0,0.02);}
+        .card-title {font-size:12px;font-weight:600;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+        
+        .body {font-size:14px;line-height:1.65;color:var(--color-text-primary)}
+        .body + .body {margin-top:8px}
+        
+        .tag {display:inline-block;font-size:11px;font-weight:500;padding:4px 10px;border-radius:12px;margin:4px 4px 0 0}
+        .t-green {background:#EAF3DE;color:#27500A}
+        .t-amber {background:#FAEEDA;color:#633806}
+        .t-blue {background:#E6F1FB;color:#0C447C}
+        .t-red {background:#FCEBEB;color:#791F1F}
+        .t-teal {background:#E1F5EE;color:#085041}
+        .t-gray {background:#F1EFE8;color:#444441}
+        
+        .h2 {font-size:16px;font-weight:600;margin-bottom:12px;margin-top:28px;color:var(--color-text-primary); border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 8px;}
+        .h2:first-child {margin-top:0}
+        
+        .accent-bar {width:3px;border-radius:2px;flex-shrink:0;align-self:stretch}
+        .row-accent {display:flex;gap:12px;margin-bottom:10px}
+        
+        .cols {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        @media(max-width:600px){.cols{grid-template-columns:1fr}}
+        
+        .step {display:flex;gap:12px;margin-bottom:12px;align-items:flex-start}
+        .step-num {width:24px;height:24px;border-radius:50%;background:var(--color-background-secondary);font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--color-text-secondary);margin-top:2px; border: 1px solid var(--color-border-tertiary);}
+        .step-body {font-size:14px;line-height:1.6}
+        .step-body strong {font-weight:600}
+        
+        .pill-row {display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+        
+        .ref-card {background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;margin-bottom:8px;font-size:13px;line-height:1.55}
+        .ref-card b {font-weight:600}
+        .ref-label {font-size:11px;color:var(--color-text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em; font-weight: 600;}
+        
+        .divider {border:none;border-top:1px solid var(--color-border-tertiary);margin:24px 0}
+        
+        .notice {background:var(--color-background-secondary);border-left:4px solid #1D9E75;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:12px 16px;font-size:14px;line-height:1.6;margin-bottom:16px}
+        .warn {background:var(--color-background-secondary);border-left:4px solid #EF9F27;border-radius:0 var(--border-radius-md) var(--border-radius-md) 0;padding:12px 16px;font-size:14px;line-height:1.6;margin-bottom:16px}
+        
+        .page-row {display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+        @media(max-width:520px){.page-row{grid-template-columns:1fr}}
+        
+        .page-card {background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;font-size:13px}
+        .page-card .pname {font-weight:600;font-size:14px;margin-bottom:4px}
+        .page-card .ptag {font-size:12px;color:var(--color-text-secondary)}
+        
+        .ia-block {background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:14px 16px;margin-bottom:10px}
+        .ia-title {font-size:13px;font-weight:600;margin-bottom:8px;color:var(--color-text-primary)}
+        .ia-list {font-size:13px;color:var(--color-text-secondary);line-height:1.7;padding-left:16px}
     </style>
 </head>
 <body>
 
-<div class="header-area">
-    <h1>La Cueva de Miravet</h1>
-    <p>Digital Strategy & Deployment Brief · 2026</p>
-</div>
+<div class="container">
+    <header>
+        <h1 class="sr-only">La Cueva de Miravet</h1>
+        <p class="subtitle">Website, PR & Social Strategy Brief</p>
+    </header>
 
-<div class="tabs">
-  <button class="tab on" onclick="sw('ctx',this)">Context</button>
-  <button class="tab" onclick="sw('web',this)">Website</button>
-  <button class="tab" onclick="sw('booking',this)">Booking</button>
-  <button class="tab" onclick="sw('pr',this)">PR</button>
-  <button class="tab" onclick="sw('social',this)">Social</button>
-  <button class="tab" onclick="sw('refs',this)">References</button>
-</div>
+    <div class="tabs">
+      <button class="tab on" onclick="sw('ctx',this)">Context</button>
+      <button class="tab" onclick="sw('web',this)">Website</button>
+      <button class="tab" onclick="sw('booking',this)">Booking</button>
+      <button class="tab" onclick="sw('pr',this)">PR</button>
+      <button class="tab" onclick="sw('social',this)">Social</button>
+      <button class="tab" onclick="sw('refs',this)">References</button>
+    </div>
 
-<!-- All your content panels remain here exactly as provided, just inheriting the new styles -->
-<div id="ctx" class="panel on">
-  <p class="h2">What we know going in</p>
-  <p class="body">Based on the marketing plan, SOW, and your briefing — here is the consolidated picture before we start building anything.</p>
+    <div id="ctx" class="panel on">
+      <p class="h2">What we know going in</p>
+      <p class="body">Based on the marketing plan, SOW, and your briefing — here is the consolidated picture before we start building anything.</p>
 
-  <div style="margin-top:14px">
-    <div class="kv"><span class="kl">Property</span><span><b>La Cueva de Miravet</b> — 7-room luxury ecolodge, Cabanes, Castellón</span></div>
-    <div class="kv"><span class="kl">Owner</span><span>Adrian Mill (Managing Director, ESS)</span></div>
-    <div class="kv"><span class="kl">CMS</span><span>WordPress (existing)</span></div>
-    <div class="kv"><span class="kl">Booking today</span><span>100% via Escapada Rural / Booking.com / Airbnb</span></div>
-    <div class="kv"><span class="kl">USP hierarchy</span><span>Private cave integration → mountaintop location → off-grid sustainability</span></div>
-  </div>
+      <div style="margin-top:14px">
+        <div class="kv"><span class="kl">Property</span><span><b>La Cueva de Miravet</b> — 7-room luxury ecolodge, Cabanes, Castellón</span></div>
+        <div class="kv"><span class="kl">Owner</span><span>Adrian Mill (Managing Director, ESS)</span></div>
+        <div class="kv"><span class="kl">CMS</span><span>WordPress (existing) — all work builds on this</span></div>
+        <div class="kv"><span class="kl">Booking today</span><span>100% via Escapada Rural / Booking.com / Airbnb — no direct engine</span></div>
+        <div class="kv"><span class="kl">OTA commission</span><span>15–20% per transaction on Booking.com</span></div>
+        <div class="kv"><span class="kl">Primary markets</span><span>Spain · UK · Netherlands · Germany · France (then US / Canada / Asia)</span></div>
+        <div class="kv"><span class="kl">Ideal guest</span><span>35–55, affluent eco-conscious couple or small group, values sustainability + authenticity</span></div>
+        <div class="kv"><span class="kl">Buyer personas</span><span>"Sophie Andersen" (eco-couple) · "Thomas Legrand" (group/experience-seeker)</span></div>
+        <div class="kv"><span class="kl">USP hierarchy</span><span>Private cave integration → mountaintop location → off-grid sustainability → pool + sea views</span></div>
+        <div class="kv"><span class="kl">Legal obligations</span><span>GDPR guest data · SES.HOSPEDAJES registration (24h after arrival) · EU e-commerce directive</span></div>
+        <div class="kv"><span class="kl">3 workstreams</span><span>Website revamp + SEO · PR outreach · Social media strategy</span></div>
+      </div>
 
-  <hr class="divider">
-  <p class="h2">Three workstreams at a glance</p>
-  <div class="cols">
-    <div class="card"><div class="card-title">Workstream 1 — Website</div><p class="body">Rebuild as multi-page site with direct booking engine, SEO architecture, and branded design system.</p><div class="pill-row"><span class="tag t-red">Highest ROI</span><span class="tag t-amber">3 weeks delivery</span></div></div>
-    <div class="card"><div class="card-title">Workstream 2 — PR</div><p class="body">Outreach to travel press in UK, NL, DE, FR + Spain. Anchored on the cave narrative.</p><div class="pill-row"><span class="tag t-teal">Brand equity</span><span class="tag t-blue">International</span></div></div>
-  </div>
-</div>
+      <hr class="divider">
+      <p class="h2">Three workstreams at a glance</p>
+      <div class="cols">
+        <div class="card"><div class="card-title">Workstream 1 — Website</div><p class="body">Rebuild as multi-page site with direct booking engine, SEO architecture, native experience booking, and branded design system. Highest commercial priority.</p><div class="pill-row"><span class="tag t-red">Highest ROI</span><span class="tag t-amber">3 weeks delivery</span><span class="tag t-gray">WordPress</span></div></div>
+        <div class="card"><div class="card-title">Workstream 2 — PR</div><p class="body">Outreach to travel press in UK, NL, DE, FR + Spain. Press kit, media list, story angles anchored on the cave narrative and sustainability. Mid-term brand play.</p><div class="pill-row"><span class="tag t-teal">Brand equity</span><span class="tag t-blue">International reach</span></div></div>
+        <div class="card"><div class="card-title">Workstream 3 — Social</div><p class="body">Clean, aspirational content calendar. Effortless luxury aesthetic. Cave + nature + light as visual anchors. Reels, Pinterest, UGC loop. Monthly cadence.</p><div class="pill-row"><span class="tag t-green">Discovery</span><span class="tag t-teal">Aspirational</span><span class="tag t-blue">Minimalist</span></div></div>
+      </div>
+    </div>
 
-<!-- [Remaining panels: web, booking, pr, social, refs would be pasted here from your snippet] -->
-<div id="web" class="panel">
-    <div class="notice">The sitemap you've defined is well-structured. The IA for the homepage is conversion-smart.</div>
-    <p class="h2">Homepage IA — Section by Section</p>
-    <div class="ia-block">
-        <div class="ia-title">Hero Section — Impact image/video · H1 · Availability selector</div>
-        <ul class="ia-list">
-            <li>H1 should lead with the cave: "Built into the mountain. Born from the cave."</li>
-            <li>Consider video over slider for emotional impact.</li>
-        </ul>
+    <div id="web" class="panel">
+      <p class="h2">Website revamp — sitemap & IA direction</p>
+      <div class="notice">The sitemap you've defined is well-structured. The IA for the homepage is conversion-smart — hero with availability selector immediately removes a key friction point. Below are observations and suggestions to strengthen both.</div>
+
+      <p class="h2">Sitemap — pages confirmed</p>
+      <div class="page-row">
+        <div class="page-card"><div class="pname">Home</div><div class="ptag">Main conversion page</div></div>
+        <div class="page-card"><div class="pname">Stay</div><div class="ptag">Accommodation overview</div></div>
+        <div class="page-card"><div class="pname">Room Details</div><div class="ptag">Individual room pages ×7</div></div>
+        <div class="page-card"><div class="pname">Experiences</div><div class="ptag">Cave, activities, wellness</div></div>
+        <div class="page-card"><div class="pname">Location</div><div class="ptag">Destination / area guide</div></div>
+        <div class="page-card"><div class="pname">Journal</div><div class="ptag">Blog / SEO content</div></div>
+        <div class="page-card"><div class="pname">Book Now</div><div class="ptag">Booking funnel</div></div>
+        <div class="page-card"><div class="pname">Contact</div><div class="ptag">Support</div></div>
+        <div class="page-card"><div class="pname">Privacy / Terms</div><div class="ptag">Legal</div></div>
+      </div>
+
+      <hr class="divider">
+      <p class="h2">Sitemap suggestions</p>
+      <div class="step"><div class="step-num">+</div><div class="step-body"><strong>Consider "The Cave" as a standalone page or prominent Experiences sub-section.</strong> The cave is the single most remarkable USP and it currently sits under Experiences alongside activities. It deserves its own dedicated moment — either a standalone page or the hero section of Experiences. The name of the lodge promises it; the IA should deliver on that promise immediately.</div></div>
+      <div class="step"><div class="step-num">+</div><div class="step-body"><strong>Consider "About / Story" page.</strong> The ten-year build story and the founder narrative are powerful brand assets (confirmed in the marketing plan). The marketing plan's own SWOT identifies "content creation and storytelling" as a top opportunity. An About page anchors the sustainability section, the ownership story, and the values — all of which the buyer personas respond to strongly.</div></div>
+      <div class="step"><div class="step-num">+</div><div class="step-body"><strong>Room Detail pages need unique room names before build begins.</strong> "Habitación 1–7" cannot be the slug. Work with Adrian to name each room before development starts — the names define the URL slugs, SEO titles, and content strategy for each page.</div></div>
+      <div class="step"><div class="step-num">!</div><div class="step-body"><strong>Book Now page vs. embedded booking.</strong> The SOW specifies an embedded booking flow within the site (no external redirect). The "Book Now" node in the sitemap is correct — but it should render the booking widget inline, not navigate away. Confirm this with the developer so the navigation label doesn't feel like it exits the site.</div></div>
+
+      <hr class="divider">
+      <p class="h2">Homepage IA — section by section</p>
+
+      <div class="ia-block"><div class="ia-title">Hero Section — Impact image/video · H1 · Short paragraph · Availability selector</div><ul class="ia-list"><li>Strong instinct — the availability selector here is conversion-first and removes the #1 friction point (having to leave for an OTA to check dates)</li><li>H1 should lead with the cave. Suggest: "Built into the mountain. Born from the cave." or simply "La Cueva de Miravet — where the mountain opens."</li><li>Consider video over slider (Rosa Hotels / Snami reference) — a single looping dawn-to-dusk clip outperforms static grids for emotional impact at this positioning level</li><li>Availability selector: the SOW's recommended stack (MotoPress or WP Booking System) renders natively in WordPress — ensure the widget's visual style is fully skin-matched to the design system</li></ul></div>
+
+      <div class="ia-block"><div class="ia-title">Intro Block — Heading · H2 statement · Reviews score · 2 arch images</div><ul class="ia-list"><li>Review score here is excellent — social proof above the fold is a proven conversion signal</li><li>The "arch images" reference an organic, editorial layout (seen in Omai, Rosa Hotels) — ensure the photography commissioned supports this (vertical format, high contrast, natural light)</li><li>The H2 statement is where the brand voice lives — this should be written first, before layout, because it drives the visual direction</li></ul></div>
+
+      <div class="ia-block"><div class="ia-title">Full Width 2×3 Grid — Amenities + Icons</div><ul class="ia-list"><li>Correctly placed — confirms the offering before the rooms section</li><li>Include: Cave terrace · Pool · Hot tub · Off-grid / solar · 7 rooms · Local experiences</li><li>Icons should be custom line-drawn, not stock — this is a detail that signals the premium tier</li></ul></div>
+
+      <div class="ia-block"><div class="ia-title">Full Width Banner — Reviews Slider</div><ul class="ia-list"><li>Strong placement — between amenities and rooms, trust is confirmed before the purchase decision</li><li>Pull 3–5 reviews from Booking.com (8.7 rating) and translate to EN/ES</li><li>Consider displaying reviewer nationality alongside the quote — "Maria, Netherlands" adds specificity and speaks directly to the international target markets</li></ul></div>
+
+      <div class="ia-block"><div class="ia-title">Grid — Accommodation Options</div><ul class="ia-list"><li>This is the room grid linking to Room Detail pages — room names must be finalised before this section is designed</li><li>Each card: room name · key feature line · view orientation · from €X/night · CTA button</li></ul></div>
+
+      <div class="ia-block"><div class="ia-title">Full Width 1×3 Grid — Activities</div><ul class="ia-list"><li>Good anchor before the footer — positions the property as a destination, not just accommodation</li><li>Suggest: Cave exploration · Local wine & olive tasting · Hiking in Desert de les Palmes</li><li>Each tile links to the relevant Experiences sub-section</li></ul></div>
+
+      <hr class="divider">
+      <p class="h2">SEO architecture — content map</p>
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Homepage</strong> targets: "luxury ecolodge Castellón", "off-grid hotel Spain", "La Cueva de Miravet"</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Stay / room pages</strong> target: "[Room Name] La Cueva de Miravet", "luxury room mountain Castellón", "private terrace hotel Cabanes"</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Experiences page</strong> targets: "cave hotel Spain", "ecolodge activities Castellón", "hiking retreat Valencia"</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Location page</strong> targets: "things to do near Oropesa del Mar", "Cabanes Castellón travel guide", "Desert de les Palmes hiking"</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Journal</strong> targets informational queries: "off-grid luxury travel Spain", "ecolodge Comunidad Valenciana", "sustainable hotel near Valencia" — 4–6 posts per year minimum</div></div>
+    </div>
+
+    <div id="booking" class="panel">
+      <p class="h2">Direct booking system — technical direction</p>
+      <div class="notice">The SOW (LCDM-ADM-SOW-001) is well-considered and clearly scoped. The 3-week delivery timeline is realistic for the booking module alone. Key decisions that need to be locked before build can start are flagged below.</div>
+
+      <p class="h2">Stack decision — booking plugin</p>
+      <p class="body" style="margin-bottom:12px">The SOW evaluates three options. Based on the property's needs (7 rooms, seasonal pricing, channel manager to avoid double-bookings, optional activity add-ons, bilingual EN/ES), here is the prioritised view:</p>
+
+      <div class="card"><div class="card-title">Recommended — MotoPress Hotel Booking (free)</div><p class="body">Purpose-built for hospitality (not adapted e-commerce). Handles room availability, seasonal rates, deposit/balance split natively. WooCommerce handles payments only. Eliminates the integration conflict flagged in the SOW. Free tier covers the essential needs for 7 rooms. Availability sync with Booking.com via iCal feed reduces double-booking risk.</p><div class="pill-row"><span class="tag t-green">Hospitality-native logic</span><span class="tag t-green">No WooCommerce conflicts</span><span class="tag t-amber">iCal sync (not real-time)</span></div></div>
+
+      <div class="card"><div class="card-title">Alternative — Lodgify (freemium widget)</div><p class="body">The SOW notes this is not fully free but offers a free embeddable widget. Its channel manager is its strongest argument — real-time two-way sync with Booking.com/Airbnb eliminates double-booking risk entirely. For a 7-room property at this price point, the subscription cost is recouped after one or two direct bookings. Worth presenting to Adrian as the more robust commercial option.</p><div class="pill-row"><span class="tag t-blue">Real-time channel sync</span><span class="tag t-blue">Best conversion UX</span><span class="tag t-amber">Monthly subscription</span></div></div>
+
+      <div class="card"><div class="card-title">Avoid — Booking Calendar + WooCommerce</div><p class="body">The SOW's primary option creates a known integration conflict between room availability logic (Booking Calendar) and payment flow (WooCommerce). The SOW itself identifies this risk. MotoPress solves it cleanly.</p><div class="pill-row"><span class="tag t-red">Integration risk</span><span class="tag t-red">Not hospitality-native</span></div></div>
+
+      <hr class="divider">
+      <p class="h2">Booking flow — guest journey</p>
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Select dates + room</strong> — availability calendar embedded in Book Now page and hero section selector</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>Add optional experiences</strong> — cave tour, wine tasting, hiking listed as bookable add-ons with transparent pricing</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Guest details + T&C acceptance</strong> — checkbox confirmation (legally sufficient per SOW analysis of EU Directive 2000/31/CE)</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Secure payment</strong> — Stripe (primary) + PayPal (secondary). Deposit or full payment per Adrian's pricing policy</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Confirmation email (auto)</strong> — booking summary + T&C PDF attachment + link to identity document upload</div></div>
+      <div class="step"><div class="step-num">6</div><div class="step-body"><strong>Identity document upload</strong> — secure encrypted form (GDPR-compliant, 3-year retention, manual export to SES.HOSPEDAJES within 24h of arrival)</div></div>
+
+      <hr class="divider">
+      <p class="h2">Key decisions needed from Adrian</p>
+      <div class="kv"><span class="kl">Room pricing</span><span>Per-room nightly rates + seasonal tiers + minimum stay policy</span></div>
+      <div class="kv"><span class="kl">Deposit policy</span><span>% deposit at booking vs. full payment — defines payment flow complexity</span></div>
+      <div class="kv"><span class="kl">Cancellation policy</span><span>Free cancellation window, partial refund rules — required before T&C can be drafted</span></div>
+      <div class="kv"><span class="kl">Whole lodge booking</span><span>Can all 7 rooms be booked as an exclusive-use block? At what rate?</span></div>
+      <div class="kv"><span class="kl">Experience pricing</span><span>Confirmed prices for cave tour, wine tasting, hiking, yoga add-ons</span></div>
+      <div class="kv"><span class="kl">Channel manager</span><span>Confirm Lodgify budget vs. iCal sync approach — this determines plugin choice</span></div>
+      <div class="kv"><span class="kl">Stripe account</span><span>Confirm Stripe account exists or needs to be created (affects Week 1 timeline)</span></div>
+    </div>
+
+    <div id="pr" class="panel">
+      <p class="h2">PR outreach strategy</p>
+      <p class="body">The marketing plan correctly identifies PR as a key opportunity — and the property has the ingredients for genuinely compelling press coverage. The challenge is not the story; it is having the right materials and the right approach for each target market.</p>
+
+      <hr class="divider">
+      <p class="h2">Story angles — by outlet type</p>
+
+      <div class="card"><div class="card-title">Angle 1 — The cave story (universal)</div><p class="body">"A Spanish family spent ten years building a luxury lodge around a natural cave on a mountaintop in Castellón — and you've never heard of it." This is the evergreen pitch that opens doors across all markets. It is remarkable, verifiable, and deeply visual. Every press kit should lead here.</p><div class="pill-row"><span class="tag t-green">Pitch to all markets</span><span class="tag t-green">Discovery narrative</span></div></div>
+
+      <div class="card"><div class="card-title">Angle 2 — Sustainable luxury (UK / NL / DE)</div><p class="body">Off-grid, solar-powered, local materials, seven rooms — zero compromise on comfort. Targets the sustainability-meets-luxury editorial beat that performs strongly in Guardian Travel, Condé Nast Traveller, and German-language eco-travel media. The marketing plan's SWOT confirms this as a top opportunity.</p><div class="pill-row"><span class="tag t-blue">Guardian Travel</span><span class="tag t-blue">CNT UK</span><span class="tag t-teal">NL / DE eco-travel press</span></div></div>
+
+      <div class="card"><div class="card-title">Angle 3 — Hidden Spain (UK / NL)</div><p class="body">"Forget the Costa Blanca. This is Castellón." Positions the property within the growing editorial trend of discovering Spain beyond the tourist corridor. The proximity to Oropesa del Mar and Vilafamés (award-winning village) provides local colour. Strong fit for UK Sunday supplements and Dutch travel magazines.</div><div class="pill-row"><span class="tag t-blue">Sunday Times Travel</span><span class="tag t-blue">The Telegraph</span><span class="tag t-teal">Elsevier Weekend NL</span></div></div>
+
+      <div class="card"><div class="card-title">Angle 4 — Slow travel / digital detox (all markets)</div><p class="body">Off-grid, no signal pressure, mountain setting, swimming pool, hot tub, cave terrace. The marketing plan's wellness retreat opportunity is directly aligned with this editorial trend. Targets wellness and lifestyle press, not just travel media.</p><div class="pill-row"><span class="tag t-teal">Monocle</span><span class="tag t-teal">Kinfolk</span><span class="tag t-green">Wellness / lifestyle press</span></div></div>
+
+      <hr class="divider">
+      <p class="h2">Press kit — what needs to be produced</p>
+      <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Hero photography (non-negotiable)</strong> — 8–12 high-resolution images: cave entrance, pool at golden hour, terrace at sunrise, hot tub with sea view, one or two rooms, exterior from approach road, local landscape. Without this, no serious outlet will run the story.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><strong>One-page property fact sheet</strong> — rooms, amenities, pricing, location, booking URL. Journalists need facts fast.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><strong>Founder story (200 words)</strong> — the ten-year build in Adrian's own voice. This is what editors quote.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-body"><strong>Three pitch letters</strong> — one per main angle, adapted per target market language (EN for UK/NL/DE, consider DE translation for German press).</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Press contact page on website</strong> — a hidden or discreet Press section with downloadable kit, high-res images, and a direct contact. Standard expectation from any journalist who finds the property organically.</div></div>
+
+      <hr class="divider">
+      <p class="h2">Target media list — by market</p>
+      <div class="cols">
+        <div><div class="ref-label">UK</div>
+          <div class="ref-card"><b>Guardian Travel</b> — strong eco-travel + hidden Spain coverage</div>
+          <div class="ref-card"><b>Condé Nast Traveller UK</b> — luxury + sustainability beat</div>
+          <div class="ref-card"><b>Sunday Times Travel</b> — hidden gems, slow travel</div>
+          <div class="ref-card"><b>National Geographic Traveller UK</b> — off-grid + nature stories</div>
+          <div class="ref-card"><b>Suitcase Magazine</b> — independent travel, strong visual content</div>
+        </div>
+        <div><div class="ref-label">Spain</div>
+          <div class="ref-card"><b>El País Viajes</b> — leading Spanish travel supplement</div>
+          <div class="ref-card"><b>CNT España</b> — luxury + eco positioning</div>
+          <div class="ref-card"><b>Traveler (Spain)</b> — National Geographic affiliate</div>
+          <div class="ref-card"><b>Turismo Rural / Escapadas</b> — niche rural travel press</div>
+        </div>
+        <div><div class="ref-label">NL / DE</div>
+          <div class="ref-card"><b>Elsevier Weekend (NL)</b> — affluent Dutch weekend travel</div>
+          <div class="ref-card"><b>VRIJ Nederland (NL)</b> — progressive, eco-minded readership</div>
+          <div class="ref-card"><b>Geo (DE)</b> — nature + travel, strong sustainability angle</div>
+          <div class="ref-card"><b>Stern Reise (DE)</b> — mainstream premium travel</div>
+        </div>
+      </div>
+
+      <hr class="divider">
+      <p class="h2">Influencer / content creator layer</p>
+      <p class="body" style="margin-bottom:8px">The marketing plan identifies influencer partnerships as a key opportunity. The right profile for this property is niche and credible, not mass reach:</p>
+      <div class="step"><div class="step-num">→</div><div class="step-body">Eco-luxury travel creators (10k–100k, high engagement) outperform mass influencers for boutique properties. One aligned creator post outperforms ten generic ones.</div></div>
+      <div class="step"><div class="step-num">→</div><div class="step-body">Target creators who specifically cover sustainable travel, slow travel, or off-the-beaten-path Spain — not generic travel accounts.</div></div>
+      <div class="step"><div class="step-num">→</div><div class="step-body">Offer complimentary stays in exchange for content rights (usable on website and ads) — more valuable than a post alone.</div></div>
+    </div>
+
+    <div id="social" class="panel">
+      <p class="h2">Social media strategy</p>
+      <div class="notice">Your instinct — clean, aspirational, effortless, minimalist luxury — is exactly right for this property and its target audience. The references (Rosa Hotels, Omai) both demonstrate this aesthetic at its best. Below is how to operationalise it.</div>
+
+      <p class="h2">Visual identity direction</p>
+
+      <div class="card"><div class="card-title">Aesthetic — what it should feel like</div><p class="body">Still. Warm. Unhurried. The light of late afternoon through stone. The feeling of arriving somewhere that required effort to find. Think: wide crops with generous negative space, natural textures (rock, terracotta, linen, water), muted warm tones over high-saturation filters, human presence felt but rarely centred (a hand, a shadow, a glass on a ledge).</p><div class="pill-row"><span class="tag t-teal">Omai reference</span><span class="tag t-teal">Rosa Hotels reference</span><span class="tag t-gray">Avoid: over-saturated, busy, stock-feeling</span></div></div>
+
+      <div class="card"><div class="card-title">Visual anchors — what to photograph repeatedly</div>
+        <div class="kv"><span class="kl">The cave</span><span>Always the centrepiece — internal views, cave mouth at dusk, the way light enters</span></div>
+        <div class="kv"><span class="kl">The pool</span><span>Minimal, geometric, with mountain and sea behind — best at golden hour and blue hour</span></div>
+        <div class="kv"><span class="kl">The terrace</span><span>Morning coffee, evening wine, empty chairs with the view — suggest a feeling, not a product</span></div>
+        <div class="kv"><span class="kl">Local textures</span><span>Stone walls, olive trees, ceramic tiles, local produce — ground the property in place</span></div>
+        <div class="kv"><span class="kl">The horizon</span><span>Sea visible from a mountain — this is the compositional surprise that differentiates the property</span></div>
+      </div>
+
+      <hr class="divider">
+      <p class="h2">Platform strategy</p>
+      <div class="cols">
+        <div class="card"><div class="card-title">Instagram — primary</div><p class="body">Feed: editorial, still, wide. Stories: behind the scenes, morning light, local market. Reels: 30–60s landscape/mood clips (cave → terrace → pool → horizon). Bio: rewrite to include location + cave reference + link.</p></div>
+        <div class="card"><div class="card-title">Pinterest — launch immediately</div><p class="body">5 boards: The Lodge · The Cave · Our Rooms · Castellón Escapes · Sustainable Stays. Each pin links to the corresponding website page. Strong long-tail discovery traffic for the target persona.</p></div>
+        <div class="card"><div class="card-title">Facebook — maintenance</div><p class="body">Mirror Instagram content. Useful for the 40–55 segment and for running targeted ads to UK/NL/DE markets. Not a primary creative channel.</p></div>
+        <div class="card"><div class="card-title">YouTube / Reels — phased</div><p class="body">Commission a 90s walkthrough video (dawn-to-dusk format) in Month 2 after hero photography is done. This becomes the anchor for YouTube, Reels, and homepage embed.</p></div>
+      </div>
+
+      <hr class="divider">
+      <p class="h2">Content calendar — monthly rhythm</p>
+      <div class="step"><div class="step-num">Mon</div><div class="step-body"><strong>Landscape / light</strong> — wide crop, no caption needed beyond location tag. Cave, pool, terrace, horizon. Let the image speak.</div></div>
+      <div class="step"><div class="step-num">Wed</div><div class="step-body"><strong>Sustainability or story</strong> — a short, honest caption about off-grid life, local sourcing, or the building process. Snami-style narrative tone: "We learned this from the mountain."</div></div>
+      <div class="step"><div class="step-num">Fri</div><div class="step-body"><strong>Local area or experience</strong> — Vilafamés, Desert de les Palmes, a local dish, the cave exploration, olive picking. Positions the property as a destination, not just a room.</div></div>
+      <div class="step"><div class="step-num">Sun</div><div class="step-body"><strong>Guest moment or testimonial</strong> — a quote from a Booking.com review, a UGC repost with permission, or a single line from a guest message. No need for a photo every time — text on a textured background works well.</div></div>
+
+      <hr class="divider">
+      <p class="h2">UGC strategy</p>
+      <div class="step"><div class="step-num">1</div><div class="step-body">Print a small card placed in each room: "The cave tends to stay with people. If it stays with you too, share it: <b>#LaCuevaDeMiravet</b>"</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body">Add a gentle check-out prompt: "We'd love to see your stay through your eyes." No pressure, no incentive required — at this positioning level, a genuine ask works better than a reward.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body">Set up a saved hashtag search and repost (with credit) the best guest content monthly — this signals community without manufacturing it.</div></div>
+
+      <hr class="divider">
+      <p class="h2">Caption voice — what it sounds like</p>
+      <div class="ref-card"><b>Do:</b> "The cave doesn't announce itself. It waits." · "Six hours of light on the terrace. That's a Tuesday." · "Some mornings, the sea is closer than the road."</div>
+      <div class="ref-card"><b>Don't:</b> "Book your stay now! 🌟" · "Luxury awaits 🏔✨" · "Our amazing team welcomes you!" · Emojis leading captions.</div>
+      <div class="ref-card"><b>Tone model:</b> Snami Travel's copy — evocative, second-person, quiet confidence. Not a hotel posting; a place speaking.</div>
+    </div>
+
+    <div id="refs" class="panel">
+      <p class="h2">Design references — what each brings to this project</p>
+
+      <div class="card">
+        <div class="card-title">Rosa Hotels (rosahotels.dgrees.studio) — primary visual reference</div>
+        <p class="body">Editorial layout with generous whitespace and arch-shaped image containers. Full-width video hero. Elegant serif/sans pairing. Clean navigation with transparent-to-solid scroll behaviour. <b>What to take:</b> the editorial section rhythm (wide text + asymmetric image grid), the video hero approach, the review score placement in the intro block. <b>What doesn't apply:</b> multi-property navigation (LCDM is a single property).</p>
+        <div class="pill-row"><span class="tag t-green">Layout rhythm</span><span class="tag t-green">Video hero</span><span class="tag t-green">Arch image treatment</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Omai Villas (omaivillas.com) — tone and editorial depth</div>
+        <p class="body">"Welcome home to the extraordinary" is a masterclass in luxury positioning copy — specific enough to feel earned, abstract enough to be aspirational. The villa-per-page architecture is directly applicable to LCDM's room detail pages. The enquiry form design (minimal, datepicker-led) is a reference for the booking widget. <b>What to take:</b> the copy register, the room page structure (introduction → accommodation → experiences → gallery), the enquiry/booking form minimalism.</p>
+        <div class="pill-row"><span class="tag t-teal">Copy register</span><span class="tag t-teal">Room page structure</span><span class="tag t-teal">Booking form UX</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Snami Travel (snamitravel.com) — narrative and caption voice</div>
+        <p class="body">"We design emotion. Because feeling is the finest luxury." This is the tone model for LCDM's copy across website and social. Second-person, unhurried, grounded in place. The "For those who travel differently" section maps almost directly onto LCDM's buyer persona. <b>What to take:</b> the caption and body copy voice, the section heading approach (statement + italicised qualifier), the philosophy/about page structure.</p>
+        <div class="pill-row"><span class="tag t-blue">Copy voice</span><span class="tag t-blue">Section heading style</span><span class="tag t-blue">About page model</span></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Almaris (themewant.com/products/wordpress/almaris) — WordPress implementation reference</div>
+        <p class="body">A practical reference for what's achievable in WordPress without custom development. The Bold variant specifically uses full-width sections, clean typography, and a booking-widget-friendly layout. Useful as a conversation starter with the developer about what's built vs. themed. <b>Caution:</b> do not use as the template wholesale — the design needs to be more bespoke than a theme at this positioning level.</p>
+        <div class="pill-row"><span class="tag t-amber">WordPress feasibility</span><span class="tag t-amber">Developer reference</span><span class="tag t-gray">Not for direct use</span></div>
+      </div>
+
+      <hr class="divider">
+      <p class="h2">Design system — recommended direction</p>
+      <div class="kv"><span class="kl">Typography</span><span>Serif display (Playfair Display or Cormorant Garamond) for headings + clean sans (Inter or DM Sans) for body. The contrast signals luxury without being ornate.</span></div>
+      <div class="kv"><span class="kl">Colour palette</span><span>Warm off-white base (#FDFCF8) · Deep terracotta accent (#C4622D) · Stone/olive green secondary (#5A7A6C) · Black for type. Nomada orange as a discreet branded accent.</span></div>
+      <div class="kv"><span class="kl">Image treatment</span><span>Full-bleed, natural light, warm grade. No overlaid graphics. Architecture as the subject, not lifestyle models.</span></div>
+      <div class="kv"><span class="kl">Spacing</span><span>Generous. Luxury is communicated through what is not on the page as much as what is.</span></div>
+      <div class="kv"><span class="kl">Motion</span><span>Subtle fade-in on scroll. Video hero loops silently. No bouncing animations or aggressive transitions.</span></div>
     </div>
 </div>
 
 <script>
-function sw(id,el){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+function sw(id, el) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
   document.getElementById(id).classList.add('on');
   el.classList.add('on');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 </body>
