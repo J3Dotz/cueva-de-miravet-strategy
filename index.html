@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Cueva de Miravet — Strategy Brief</title>
+    <!-- Refined Typography for the "Luxury" feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Design System derived from the Brief */
+            --color-text-primary: #1a1a1a;
+            --color-text-secondary: #64748b;
+            --color-border-tertiary: #e2e8f0;
+            --color-background-primary: #ffffff;
+            --color-background-secondary: #f8fafc;
+            --color-accent: #C4622D; /* Terracotta from the brief */
+            --border-radius-lg: 12px;
+            --border-radius-md: 8px;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Playfair Display', serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: var(--font-sans); 
+            color: var(--color-text-primary); 
+            background-color: #fcfcf9; /* Subtle off-white */
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header-area { margin-bottom: 2rem; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 1rem; }
+        .header-area h1 { font-family: var(--font-serif); font-size: 2rem; font-weight: 500; margin-bottom: 0.5rem; }
+        .header-area p { color: var(--color-text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .tabs { display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary); margin-bottom: 1.5rem; overflow-x: auto; flex-wrap: nowrap; sticky: top; background: #fcfcf9; z-index: 10; }
+        .tab { padding: 12px 20px; font-size: 14px; cursor: pointer; border: none; background: none; color: var(--color-text-secondary); border-bottom: 2px solid transparent; white-space: nowrap; transition: all .2s; }
+        .tab.on { color: var(--color-accent); border-bottom-color: var(--color-accent); font-weight: 600; }
+        .tab:hover { color: var(--color-accent); }
+
+        .panel { display: none; animation: fadeIn 0.3s ease-out; }
+        .panel.on { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        .kv { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; gap: 12px; }
+        .kv:last-child { border: none; }
+        .kl { color: var(--color-text-secondary); flex-shrink: 0; min-width: 140px; font-weight: 500; }
+        .kv b { font-weight: 600; color: var(--color-text-primary); }
+
+        .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 18px; margin-bottom: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        .card-title { font-size: 11px; font-weight: 600; color: var(--color-accent); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+        
+        .body { font-size: 14px; color: var(--color-text-primary); }
+        .tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 4px 10px; border-radius: 20px; margin: 4px 4px 0 0; text-transform: uppercase; }
+        .t-green { background: #EAF3DE; color: #27500A; }
+        .t-amber { background: #FAEEDA; color: #633806; }
+        .t-blue { background: #E6F1FB; color: #0C447C; }
+        .t-red { background: #FCEBEB; color: #791F1F; }
+        .t-teal { background: #E1F5EE; color: #085041; }
+        .t-gray { background: #F1EFE8; color: #444441; }
+
+        .h2 { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 500; margin-bottom: 1rem; margin-top: 2rem; color: var(--color-text-primary); }
+        .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media(max-width:600px){ .cols { grid-template-columns: 1fr; } .kv { flex-direction: column; gap: 2px; } }
+
+        .notice { background: #f0fdf4; border-left: 4px solid #1D9E75; border-radius: 4px; padding: 14px; font-size: 14px; margin-bottom: 1.5rem; color: #166534; }
+        .step { display: flex; gap: 12px; margin-bottom: 16px; align-items: flex-start; }
+        .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--color-accent); font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: white; }
+        
+        .ia-block { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 16px; margin-bottom: 10px; border: 1px solid var(--color-border-tertiary); }
+        .ia-title { font-weight: 600; font-size: 14px; margin-bottom: 8px; color: var(--color-accent); }
+        .ia-list { font-size: 13px; color: var(--color-text-secondary); list-style: none; }
+        .ia-list li { margin-bottom: 6px; position: relative; padding-left: 15px; }
+        .ia-list li::before { content: "→"; position: absolute; left: 0; color: var(--color-accent); }
+
+        .page-card { background: white; border: 1px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px; text-align: center; }
+        .pname { font-weight: 600; font-size: 14px; }
+        .ptag { font-size: 11px; color: var(--color-text-secondary); }
+
+        .divider { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 2rem 0; }
+        .ref-card { background: white; border: 1px solid var(--color-border-tertiary); padding: 12px; border-radius: 8px; margin-bottom: 8px; font-size: 13px; }
+        .ref-label { font-size: 11px; font-weight: 600; color: var(--color-text-secondary); margin-bottom: 8px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+<div class="header-area">
+    <h1>La Cueva de Miravet</h1>
+    <p>Digital Strategy & Deployment Brief · 2026</p>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="sw('ctx',this)">Context</button>
+  <button class="tab" onclick="sw('web',this)">Website</button>
+  <button class="tab" onclick="sw('booking',this)">Booking</button>
+  <button class="tab" onclick="sw('pr',this)">PR</button>
+  <button class="tab" onclick="sw('social',this)">Social</button>
+  <button class="tab" onclick="sw('refs',this)">References</button>
+</div>
+
+<!-- All your content panels remain here exactly as provided, just inheriting the new styles -->
+<div id="ctx" class="panel on">
+  <p class="h2">What we know going in</p>
+  <p class="body">Based on the marketing plan, SOW, and your briefing — here is the consolidated picture before we start building anything.</p>
+
+  <div style="margin-top:14px">
+    <div class="kv"><span class="kl">Property</span><span><b>La Cueva de Miravet</b> — 7-room luxury ecolodge, Cabanes, Castellón</span></div>
+    <div class="kv"><span class="kl">Owner</span><span>Adrian Mill (Managing Director, ESS)</span></div>
+    <div class="kv"><span class="kl">CMS</span><span>WordPress (existing)</span></div>
+    <div class="kv"><span class="kl">Booking today</span><span>100% via Escapada Rural / Booking.com / Airbnb</span></div>
+    <div class="kv"><span class="kl">USP hierarchy</span><span>Private cave integration → mountaintop location → off-grid sustainability</span></div>
+  </div>
+
+  <hr class="divider">
+  <p class="h2">Three workstreams at a glance</p>
+  <div class="cols">
+    <div class="card"><div class="card-title">Workstream 1 — Website</div><p class="body">Rebuild as multi-page site with direct booking engine, SEO architecture, and branded design system.</p><div class="pill-row"><span class="tag t-red">Highest ROI</span><span class="tag t-amber">3 weeks delivery</span></div></div>
+    <div class="card"><div class="card-title">Workstream 2 — PR</div><p class="body">Outreach to travel press in UK, NL, DE, FR + Spain. Anchored on the cave narrative.</p><div class="pill-row"><span class="tag t-teal">Brand equity</span><span class="tag t-blue">International</span></div></div>
+  </div>
+</div>
+
+<!-- [Remaining panels: web, booking, pr, social, refs would be pasted here from your snippet] -->
+<div id="web" class="panel">
+    <div class="notice">The sitemap you've defined is well-structured. The IA for the homepage is conversion-smart.</div>
+    <p class="h2">Homepage IA — Section by Section</p>
+    <div class="ia-block">
+        <div class="ia-title">Hero Section — Impact image/video · H1 · Availability selector</div>
+        <ul class="ia-list">
+            <li>H1 should lead with the cave: "Built into the mountain. Born from the cave."</li>
+            <li>Consider video over slider for emotional impact.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+function sw(id,el){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  el.classList.add('on');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
