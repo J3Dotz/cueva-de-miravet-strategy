@@ -45,66 +45,66 @@
         h1 { font-size: 24px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 0.5rem; }
         .subtitle { font-size: 14px; color: var(--color-text-secondary); }
 
-        .tabs { display:flex; gap:0; border-bottom:0.5px solid var(--color-border-tertiary); margin-bottom:1.5rem; overflow-x:auto; flex-wrap:nowrap; }
-        .tab { padding:9px 16px; font-size:13px; cursor:pointer; border:none; background:none; color:var(--color-text-secondary); border-bottom:2px solid transparent; white-space:nowrap; transition:color .15s; }
-        .tab.on { color:var(--color-text-primary); border-bottom-color:var(--color-text-primary); font-weight:500; }
-        .tab:hover { color:var(--color-text-primary); }
+        .tabs { display: flex; gap: 0; border-bottom: 0.5px solid var(--color-border-tertiary); margin-bottom: 1.5rem; overflow-x: auto; flex-wrap: nowrap; }
+        .tab { padding: 9px 16px; font-size: 13px; cursor: pointer; border: none; background: none; color: var(--color-text-secondary); border-bottom: 2px solid transparent; white-space: nowrap; transition: color .15s; }
+        .tab.on { color: var(--color-text-primary); border-bottom-color: var(--color-text-primary); font-weight: 500; }
+        .tab:hover { color: var(--color-text-primary); }
         
-        .panel { display:none; }
-        .panel.on { display:block; animation: fadeIn 0.3s ease-in-out; }
+        .panel { display: none; }
+        .panel.on { display: block; animation: fadeIn 0.3s ease-in-out; }
         
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .kv { display:flex; justify-content:space-between; align-items:flex-start; padding:10px 0; border-bottom:0.5px solid var(--color-border-tertiary); font-size:13px; gap:12px; }
-        .kv:last-child { border:none; }
-        .kl { color:var(--color-text-secondary); flex-shrink:0; min-width:140px; }
-        .kv b { font-weight:500; }
+        .kv { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 13px; gap: 12px; }
+        .kv:last-child { border: none; }
+        .kl { color: var(--color-text-secondary); flex-shrink: 0; min-width: 140px; }
+        .kv b { font-weight: 500; }
         
-        .card { background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:16px; margin-bottom:12px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-        .card-title { font-size:12px; font-weight:600; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
+        .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .card-title { font-size: 12px; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 8px; }
         
-        .body { font-size:14px; line-height:1.65; color:var(--color-text-primary); }
-        .body + .body { margin-top:8px; }
+        .body { font-size: 14px; line-height: 1.65; color: var(--color-text-primary); }
+        .body + .body { margin-top: 8px; }
         
-        .tag { display:inline-block; font-size:11px; font-weight:500; padding:4px 10px; border-radius:12px; margin:4px 4px 0 0; }
-        .t-green { background:#EAF3DE; color:#27500A; }
-        .t-amber { background:#FAEEDA; color:#633806; }
-        .t-blue { background:#E6F1FB; color:#0C447C; }
-        .t-red { background:#FCEBEB; color:#791F1F; }
-        .t-teal { background:#E1F5EE; color:#085041; }
-        .t-gray { background:#F1EFE8; color:#444441; }
+        .tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 12px; margin: 4px 4px 0 0; }
+        .t-green { background: #EAF3DE; color: #27500A; }
+        .t-amber { background: #FAEEDA; color: #633806; }
+        .t-blue { background: #E6F1FB; color: #0C447C; }
+        .t-red { background: #FCEBEB; color: #791F1F; }
+        .t-teal { background: #E1F5EE; color: #085041; }
+        .t-gray { background: #F1EFE8; color: #444441; }
         
-        .h2 { font-size:16px; font-weight:600; margin-bottom:12px; margin-top:28px; color:var(--color-text-primary); border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 8px; }
-        .h2:first-child { margin-top:0; }
+        .h2 { font-size: 16px; font-weight: 600; margin-bottom: 12px; margin-top: 28px; color: var(--color-text-primary); border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 8px; }
+        .h2:first-child { margin-top: 0; }
         
-        .cols { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-        @media(max-width:600px){ .cols{ grid-template-columns:1fr; } }
+        .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media(max-width: 600px) { .cols { grid-template-columns: 1fr; } }
         
-        .step { display:flex; gap:12px; margin-bottom:12px; align-items:flex-start; }
-        .step-num { width:24px; height:24px; border-radius:50%; background:var(--color-background-secondary); font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--color-text-secondary); margin-top:2px; border: 1px solid var(--color-border-tertiary); }
-        .step-body { font-size:14px; line-height:1.6; }
-        .step-body strong { font-weight:600; }
+        .step { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+        .step-num { width: 24px; height: 24px; border-radius: 50%; background: var(--color-background-secondary); font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--color-text-secondary); margin-top: 2px; border: 1px solid var(--color-border-tertiary); }
+        .step-body { font-size: 14px; line-height: 1.6; }
+        .step-body strong { font-weight: 600; }
         
-        .pill-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
-        .ref-card { background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px; margin-bottom:8px; font-size:13px; line-height:1.55; }
-        .ref-card b { font-weight:600; }
-        .ref-label { font-size:11px; color:var(--color-text-secondary); margin-bottom:6px; text-transform:uppercase; letter-spacing:.06em; font-weight: 600; }
+        .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .ref-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px; margin-bottom: 8px; font-size: 13px; line-height: 1.55; }
+        .ref-card b { font-weight: 600; }
+        .ref-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
         
-        .divider { border:none; border-top:1px solid var(--color-border-tertiary); margin:24px 0; }
-        .notice { background:var(--color-background-secondary); border-left:4px solid #1D9E75; border-radius:0 var(--border-radius-md) var(--border-radius-md) 0; padding:12px 16px; font-size:14px; line-height:1.6; margin-bottom:16px; }
+        .divider { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 24px 0; }
+        .notice { background: var(--color-background-secondary); border-left: 4px solid #1D9E75; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 12px 16px; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
         
-        .page-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
-        @media(max-width:520px){ .page-row{ grid-template-columns:1fr; } }
-        .page-card { background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px; font-size:13px; }
-        .page-card .pname { font-weight:600; font-size:14px; margin-bottom:4px; }
-        .page-card .ptag { font-size:12px; color:var(--color-text-secondary); }
+        .page-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        @media(max-width: 520px) { .page-row { grid-template-columns: 1fr; } }
+        .page-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px; font-size: 13px; }
+        .page-card .pname { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+        .page-card .ptag { font-size: 12px; color: var(--color-text-secondary); }
         
-        .ia-block { background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:14px 16px; margin-bottom:10px; }
-        .ia-title { font-size:13px; font-weight:600; margin-bottom:8px; color:var(--color-text-primary); }
-        .ia-list { font-size:13px; color:var(--color-text-secondary); line-height:1.7; padding-left:16px; }
+        .ia-block { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px 16px; margin-bottom: 10px; }
+        .ia-title { font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--color-text-primary); }
+        .ia-list { font-size: 13px; color: var(--color-text-secondary); line-height: 1.7; padding-left: 16px; }
     </style>
 </head>
 <body>
@@ -131,8 +131,8 @@
       <div style="margin-top:14px">
         <div class="kv"><span class="kl">Property</span><span><b>La Cueva de Miravet</b> — 7-room luxury ecolodge, Cabanes, Castellón</span></div>
         <div class="kv"><span class="kl">Owner</span><span>Adrian Mill (Managing Director)</span></div>
-        <div class="kv"><span class="kl">CMS</span><span>WordPress (existing)</span></div>
-        <div class="kv"><span class="kl">Booking today</span><span>100% via Escapada Rural / Booking.com / Airbnb</span></div>
+        <div class="kv"><span class="kl">CMS</span><span>WordPress (existing) — all work builds on this</span></div>
+        <div class="kv"><span class="kl">Booking today</span><span>100% via Escapada Rural / Booking.com / Airbnb — no direct engine</span></div>
         <div class="kv"><span class="kl">OTA commission</span><span>15–20% per transaction on Booking.com</span></div>
         <div class="kv"><span class="kl">Primary markets</span><span>Spain · UK · Netherlands · Germany · France</span></div>
         <div class="kv"><span class="kl">USP hierarchy</span><span>Private cave integration → mountaintop location → off-grid sustainability → pool + sea views</span></div>
@@ -142,58 +142,75 @@
       <hr class="divider">
       <p class="h2">Three workstreams at a glance</p>
       <div class="cols">
-        <div class="card"><div class="card-title">Workstream 1 — Website</div><p class="body">Rebuild as multi-page site with direct booking engine and branded design system.</p><div class="pill-row"><span class="tag t-red">Highest ROI</span><span class="tag t-gray">WordPress</span></div></div>
-        <div class="card"><div class="card-title">Workstream 2 — PR</div><p class="body">Outreach to travel press in UK, NL, DE, FR + Spain. Story anchored on the cave narrative.</p><div class="pill-row"><span class="tag t-teal">Brand equity</span><span class="tag t-blue">International</span></div></div>
+        <div class="card">
+          <div class="card-title">Workstream 1 — Website</div>
+          <p class="body">Rebuild as multi-page site with direct booking engine and branded design system.</p>
+          <div class="pill-row"><span class="tag t-red">Highest ROI</span><span class="tag t-amber">3 weeks delivery</span><span class="tag t-gray">WordPress</span></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Workstream 2 — PR</div>
+          <p class="body">Outreach to travel press in UK, NL, DE, FR + Spain. Story anchored on the cave narrative.</p>
+          <div class="pill-row"><span class="tag t-teal">Brand equity</span><span class="tag t-blue">International reach</span></div>
+        </div>
       </div>
     </div>
 
     <div id="web" class="panel">
-      <p class="h2">Website revamp — sitemap & IA direction</p>
-      <div class="notice">The IA for the homepage is conversion-smart — hero with availability selector immediately removes friction.</div>
-
       <p class="h2">Sitemap — pages confirmed</p>
       <div class="page-row">
         <div class="page-card"><div class="pname">Home</div><div class="ptag">Main conversion page</div></div>
         <div class="page-card"><div class="pname">Stay</div><div class="ptag">Accommodation overview</div></div>
         <div class="page-card"><div class="pname">Room Details</div><div class="ptag">Individual room pages ×7</div></div>
         <div class="page-card"><div class="pname">Experiences</div><div class="ptag">Cave, activities, wellness</div></div>
-        <div class="page-card"><div class="pname">Location</div><div class="ptag">Destination guide</div></div>
+        <div class="page-card"><div class="pname">Location</div><div class="ptag">Destination / area guide</div></div>
         <div class="page-card"><div class="pname">Journal</div><div class="ptag">Blog / SEO content</div></div>
       </div>
 
+      <hr class="divider">
       <p class="h2">Homepage IA — section by section</p>
-      <div class="ia-block"><div class="ia-title">Hero Section</div><ul class="ia-list"><li>Availability selector: MotoPress or WP Booking System rendered natively.</li><li>H1: "Built into the mountain. Born from the cave."</li></ul></div>
-      <div class="ia-block"><div class="ia-title">Intro Block</div><ul class="ia-list"><li>Social proof: Display Booking.com 8.7 rating above the fold.</li></ul></div>
+      <div class="ia-block">
+        <div class="ia-title">Hero Section</div>
+        <ul class="ia-list">
+          <li>H1: "Built into the mountain. Born from the cave."</li>
+          <li>Availability selector: MotoPress or WP Booking System rendered natively.</li>
+        </ul>
+      </div>
 
-      <p class="h2">SEO architecture — content map</p>
+      <p class="h2">SEO architecture</p>
       <div class="step"><div class="step-num">1</div><div class="step-body"><strong>Homepage:</strong> "luxury ecolodge Castellón", "off-grid hotel Spain"</div></div>
-      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Journal:</strong> "sustainable hotel near Valencia" — 4–6 posts per year.</div></div>
+      <div class="step"><div class="step-num">5</div><div class="step-body"><strong>Journal:</strong> "sustainable hotel near Valencia" — 4–6 posts per year minimum.</div></div>
     </div>
 
     <div id="booking" class="panel">
       <p class="h2">Direct booking system — technical direction</p>
       <div class="card">
         <div class="card-title">Recommended — MotoPress Hotel Booking</div>
-        <p class="body">Purpose-built for hospitality. Handles room availability and seasonal rates natively. Free tier covers essentials for 7 rooms.</p>
+        <p class="body">Purpose-built for hospitality. Handles room availability and seasonal rates natively. Eliminates the integration conflict flagged in the SOW.</p>
+        <div class="pill-row"><span class="tag t-green">Hospitality-native</span><span class="tag t-green">No WooCommerce conflicts</span></div>
       </div>
       <div class="card">
         <div class="card-title">Alternative — Lodgify</div>
         <p class="body">Best channel manager for real-time sync with Booking.com/Airbnb.</p>
+        <div class="pill-row"><span class="tag t-blue">Real-time sync</span></div>
       </div>
-      <hr class="divider">
-      <p class="h2">Booking flow</p>
-      <div class="step"><div class="step-num">1</div><div class="step-body">Select dates + room.</div></div>
-      <div class="step"><div class="step-num">4</div><div class="step-body">Secure payment via Stripe or PayPal.</div></div>
     </div>
 
     <div id="pr" class="panel">
       <p class="h2">PR outreach strategy</p>
-      <p class="body">The property has the ingredients for compelling press coverage. Focus on story-led outreach.</p>
+      <p class="body">Focus on story-led outreach across all target markets.</p>
 
       <hr class="divider">
       <p class="h2">Story angles</p>
-      <div class="card"><div class="card-title">Angle 1 — The cave story</div><p class="body">"A Spanish family spent ten years building a luxury lodge around a natural cave."</p></div>
-      <div class="card"><div class="card-title">Angle 4 — Slow travel / digital detox</div><p class="body">Off-grid, no signal pressure, mountain setting. Targets wellness and lifestyle press, not just travel media.</p><div class="pill-row"><span class="tag t-teal">Monocle</span><span class="tag t-teal">Kinfolk</span></div></div>
+      <div class="card">
+        <div class="card-title">Angle 1 — The cave story</div>
+        <p class="body">"A Spanish family spent ten years building a luxury lodge around a natural cave."</p>
+        <div class="pill-row"><span class="tag t-green">Pitch to all markets</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Angle 4 — Slow travel / digital detox</div>
+        <p class="body">Off-grid, mountain setting, cave terrace. Targets wellness and lifestyle press.</p>
+        <div class="pill-row"><span class="tag t-teal">Monocle</span><span class="tag t-teal">Kinfolk</span></div>
+      </div>
 
       <hr class="divider">
       <p class="h2">Target media list</p>
@@ -201,28 +218,26 @@
         <div><div class="ref-label">UK</div><div class="ref-card"><b>Guardian Travel</b>, <b>CNT UK</b>, <b>Sunday Times</b></div></div>
         <div><div class="ref-label">Spain</div><div class="ref-card"><b>El País Viajes</b>, <b>CNT España</b>, <b>Traveler</b></div></div>
       </div>
-      
+
+      <hr class="divider">
       <p class="h2">Influencer layer</p>
       <div class="step"><div class="step-num">→</div><div class="step-body">Target creators who cover sustainable travel (10k–100k followers).</div></div>
+      <div class="step"><div class="step-num">→</div><div class="step-body">Offer complimentary stays in exchange for content rights.</div></div>
     </div> <div id="social" class="panel">
       <p class="h2">Social media strategy</p>
       <div class="notice">Aesthetic: Still. Warm. Unhurried. Muted warm tones. Minimalist luxury.</div>
-      
-      <div class="card">
-        <div class="card-title">Visual Anchors</div>
-        <p class="body">The cave mouth at dusk, the geometric pool at golden hour, local textures (stone walls, olive trees), and the sea horizon.</p>
-      </div>
 
-      <p class="h2">Platform strategy</p>
-      <div class="cols">
-        <div class="card"><div class="card-title">Instagram</div><p class="body">Reels: 30–60s landscape/mood clips. Feed: Wide, editorial crops.</p></div>
-        <div class="card"><div class="card-title">Pinterest</div><p class="body">5 boards: The Lodge, The Cave, Sustainable Stays, etc.</p></div>
+      <div class="card">
+        <div class="card-title">Visual anchors</div>
+        <div class="kv"><span class="kl">The cave</span><span>Internal views, cave mouth at dusk.</span></div>
+        <div class="kv"><span class="kl">The pool</span><span>Minimal, geometric, with mountain views.</span></div>
+        <div class="kv"><span class="kl">The horizon</span><span>Sea visible from a mountain — the compositional surprise.</span></div>
       </div>
 
       <hr class="divider">
       <p class="h2">Content calendar</p>
-      <div class="step"><div class="step-num">Mon</div><div class="step-body">Landscape / light — wide crop, no heavy caption.</div></div>
-      <div class="step"><div class="step-num">Wed</div><div class="step-body">Sustainability story — short, honest captions.</div></div>
+      <div class="step"><div class="step-num">Mon</div><div class="step-body"><strong>Landscape / light</strong> — wide crop, no heavy caption. Let the image speak.</div></div>
+      <div class="step"><div class="step-num">Wed</div><div class="step-body"><strong>Sustainability story</strong> — short, honest captions about off-grid life.</div></div>
     </div>
 
     <div id="refs" class="panel">
@@ -230,14 +245,17 @@
       <div class="card">
         <div class="card-title">Rosa Hotels</div>
         <p class="body">Reference for editorial layout and arch-shaped image containers.</p>
+        <div class="pill-row"><span class="tag t-green">Layout rhythm</span><span class="tag t-green">Arch images</span></div>
       </div>
       <div class="card">
         <div class="card-title">Omai Villas</div>
-        <p class="body">Model for luxury positioning copy and villa-per-page structure.</p>
+        <p class="body">Masterclass in luxury positioning copy and room-per-page structure.</p>
+        <div class="pill-row"><span class="tag t-teal">Copy register</span><span class="tag t-teal">Room UX</span></div>
       </div>
       <div class="card">
         <div class="card-title">Snami Travel</div>
         <p class="body">Tone model for evocative, second-person narrative voice.</p>
+        <div class="pill-row"><span class="tag t-blue">Copy voice</span></div>
       </div>
     </div>
 </div>
@@ -246,17 +264,17 @@
 function sw(id, el) {
   // Hide all panels
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
-  // Remove 'on' from all tabs
+  // Deactivate all tabs
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
   
-  // Show target panel and set tab to 'on'
+  // Show target panel and activate tab
   const target = document.getElementById(id);
   if (target) {
     target.classList.add('on');
     el.classList.add('on');
   }
   
-  // UX: Always scroll to top when switching sections
+  // UX: Scroll back to top when switching
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
